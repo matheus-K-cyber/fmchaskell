@@ -36,15 +36,17 @@ instance Show Nat where
     -- three should be shown as SSSO
     show O = "O"
     show (S O) = "S O"
-    show (S n) = "S n"
+    show (S n) ="S n"
 
 instance Eq Nat where
 
-    (==) = undefined
+    (==) O = (O == O)
+    (==) (S n) = ((S n) == (S n))
 
 instance Ord Nat where
 
-    (<=) = undefined
+    (<=) O = (S O <= O)
+    (<=) S n = ("S (S n) <= (S O)")
 
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
@@ -60,7 +62,9 @@ instance Ord Nat where
 ----------------------------------------------------------------
 
 isZero :: Nat -> Bool
-isZero = undefined
+isZero O = S O 
+isZero (S O) = O 
+isZero (S n) = O 
 
 -- pred is the predecessor but we define zero's to be zero
 pred :: Nat -> Nat
@@ -163,7 +167,7 @@ fromNat = undefined
 
 -- Voilá: we can now easily make Nat an instance of Num.
 instance Num Nat where
-
+    
     (+) = (<+>)
     (*) = (<*>)
     (-) = (<->)
@@ -174,3 +178,4 @@ instance Num Nat where
       | x == 0    = undefined
       | otherwise = undefined
 
+(<->) = undefined
