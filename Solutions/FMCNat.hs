@@ -34,20 +34,19 @@ instance Show Nat where
 
     -- zero  should be shown as O
     -- three should be shown as SSSO
-    show O = "O"
-    show (S O) = "S O"
-    show (S n) ="S n"
+    show zero = O
+    show one = S O
+    show Nat = S n
 
 instance Eq Nat where
 
-    (==) O = (O == O)
-    (==) (S n) = ((S n) == (S n))
+    (==) O = Zero
+    (==) (S n) = Nat
 
 instance Ord Nat where
 
-    (<=) O = (S O <= O)
-    (<=) S n = ("S (S n) <= (S O)")
-
+    (<=) O = S O
+    (<=) S n = (S (S n))
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
     -- Both are binary functions: max m n = ..., etc.
