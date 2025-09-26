@@ -62,19 +62,23 @@ instance Ord Nat where
 ----------------------------------------------------------------
 
 isZero :: Nat -> Bool
-isZero O = S O 
-isZero (S O) = O 
-isZero (S n) = O 
+isZero O = True
+isZero (S n) = False
 
 -- pred is the predecessor but we define zero's to be zero
 pred :: Nat -> Nat
-pred = undefined
+pred  O = O
+pred (S n) = n
 
 even :: Nat -> Bool
-even = undefined
+even O = True
+even (S n) = False
+even (S (S n) ) = True
 
 odd :: Nat -> Bool
-odd = undefined
+odd O = False
+odd (S n) =True
+odd (S (S n) ) = False
 
 
 ----------------------------------------------------------------
