@@ -38,8 +38,12 @@ instance Enum Bool where
 
 -- conjunction (AND)
 (&&) :: Bool -> Bool -> Bool
-(&&) = undefined
-
+(&&) True -> (True -> (True)) = True
+(&&) False -> (False -> (False)) = True
+(&&) False -> (True -> (True)) = False
+(&&) True -> (False -> (True)) = False
+(&&) True -> (False -> (False)) = True
+(&&) False -> (True -> (False)) = True
 infixr 3 &&
 
 -- disjunction (OR)
