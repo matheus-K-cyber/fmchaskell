@@ -36,7 +36,7 @@ instance Show Nat where
     -- three should be shown as SSSO
     show ::Nat -> String
     show O = "O"
-    show S n = "S " ++ show n
+    show S n = "S" ++ show n
 
 instance Eq Nat where
 
