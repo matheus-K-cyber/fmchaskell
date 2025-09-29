@@ -34,9 +34,9 @@ instance Show Nat where
 
     -- zero  should be shown as O
     -- three should be shown as SSSO
-    show zero = O
-    show one = S O
-    show Nat = S n
+    show ::Nat -> String
+    show O = "O"
+    show S n = "S " ++ show n
 
 instance Eq Nat where
 
