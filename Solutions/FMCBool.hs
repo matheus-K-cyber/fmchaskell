@@ -25,7 +25,7 @@ import Prelude
 data Bool = False | True
 
 instance Show Bool where
-
+    show :: Bool -> String
     show False = "False"
     show True = "True"
     
