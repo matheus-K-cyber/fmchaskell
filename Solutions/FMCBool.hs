@@ -71,7 +71,9 @@ infixr 2 \|/
 
 -- XOR (exclusive disjunction)
 (<=/=>) :: Bool -> Bool -> Bool
-(<=/=>) = undefined
+True <=/=> b = (True && not b) || (not True && b)
+b <=/=> True = (b && not True) || (not b && True)
+False <=/=> False = (False && not False) || (not False && False)
 
 infixr 2 <=/=>
 
