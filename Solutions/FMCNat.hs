@@ -38,6 +38,7 @@ instance Show Nat where
     show (S n) = 'S':show n
 
 instance Eq Nat where
+
     (==) :: Nat -> Nat
     (==) O = O
     (==) (S n) = (S n)
@@ -46,6 +47,7 @@ instance Ord Nat where
 
     (<=) :: Nat -> Nat
     (<=) n = (S n)
+
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
     -- Both are binary functions: max m n = ..., etc.
@@ -56,6 +58,21 @@ instance Ord Nat where
 
 
 ----------------------------------------------------------------
+-- some sugar
+----------------------------------------------------------------
+
+zero, one, two, three, four, five, six, seven, eight :: Nat
+zero  = O
+one   = S zero
+two   = S one
+three = S two
+four  = S three
+five  = S four
+six   = S five
+seven = S six
+eight = S seven
+
+----------------------------------------------------------------
 -- internalized predicates
 ----------------------------------------------------------------
 
@@ -64,6 +81,7 @@ isZero O = True
 isZero (S n) = False
 
 -- pred is the predecessor but we define zero's to be zero
+
 pred :: Nat -> Nat
 pred  O = O
 pred (S n) = n 
@@ -169,7 +187,7 @@ fromNat = undefined
 
 -- Voilá: we can now easily make Nat an instance of Num.
 instance Num Nat where
-    
+
     (+) = (<+>)
     (*) = (<*>)
     (-) = (<->)
@@ -180,4 +198,3 @@ instance Num Nat where
       | x == 0    = undefined
       | otherwise = undefined
 
-(<->) = undefined
