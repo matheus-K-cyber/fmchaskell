@@ -55,9 +55,9 @@ infixr 2 ||
 
 -- NAND (Sheffer stroke)
 (/|\) :: Bool -> Bool -> Bool
-True && True = False
-False && False = False
-_ && _ = True
+True /|\ b = not (True && b)
+b /|\ True = not (b && True)
+False /|\ False = not (False && False)
 
 infixr 2 /|\
 
@@ -75,7 +75,8 @@ infixr 2 <=/=>
 
 -- boolean negation
 not :: Bool -> Bool
-not = undefined
+not True = False
+not False = True
 
 -- if-then-else expression
 ifThenElse :: Bool -> a -> a -> a
