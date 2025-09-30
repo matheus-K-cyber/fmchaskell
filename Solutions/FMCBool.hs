@@ -47,13 +47,17 @@ infixr 3 &&
 
 -- disjunction (OR)
 (||) :: Bool -> Bool -> Bool
-(||) = undefined
+True || _ = True
+_ || True = True
+False || False = False
 
 infixr 2 ||
 
 -- NAND (Sheffer stroke)
 (/|\) :: Bool -> Bool -> Bool
-(/|\) = undefined
+True && True = False
+False && False = False
+_ && _ = True
 
 infixr 2 /|\
 
