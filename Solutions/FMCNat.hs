@@ -39,14 +39,16 @@ instance Show Nat where
 
 instance Eq Nat where
 
-    (==) :: Nat -> Nat
-    (==) O = O
-    (==) (S n) = (S n)
+    (==) :: Nat -> Nat -> Bool
+    (==) (O) (O) = True
+    (==) (S n) (S n) = True
+    (==) n m = False
 
 instance Ord Nat where
 
-    (<=) :: Nat -> Nat
-    (<=) n = (S n)
+    (<=) :: Nat -> Nat -> Bool
+    (<=) (S n) <= (n) = True
+    (<=) n <= (S n) = False
 
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
