@@ -25,25 +25,24 @@ import Prelude
 data Bool = False | True
 
 instance Show Bool where
-    show :: Bool -> String
     show False = "False"
     show True = "True"
     
 
 instance Enum Bool where
 
-    toEnum  = undefined
+    toEnum 1 = True
+    toEnum 0 = False
 
-    fromEnum  = undefined
+    fromEnum True = 1
+    fromEnum False = 0
 
 -- conjunction (AND)
 (&&) :: Bool -> Bool -> Bool
-(&&) True -> (True -> (True)) = True
-(&&) False -> (False -> (False)) = True
-(&&) False -> (True -> (True)) = False
-(&&) True -> (False -> (True)) = False
-(&&) True -> (False -> (False)) = True
-(&&) False -> (True -> (False)) = True
+True && True = True
+False && False = True
+_ && _ = False
+
 infixr 3 &&
 
 -- disjunction (OR)

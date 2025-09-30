@@ -34,19 +34,18 @@ instance Show Nat where
 
     -- zero  should be shown as O
     -- three should be shown as SSSO
-    show :: Nat -> String
     show O = "O"
-    show S n = "S" ++ show n
+    show (S n) = 'S':show n
 
 instance Eq Nat where
-
-    (==) O = Zero
-    (==) (S n) = Nat
+    (==) :: Nat -> Nat
+    (==) O = O
+    (==) (S n) = (S n)
 
 instance Ord Nat where
 
-    (<=) O = S O
-    (<=) S n = (S (S n))
+    (<=) :: Nat -> Nat
+    (<=) n = (S n)
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
     -- Both are binary functions: max m n = ..., etc.
