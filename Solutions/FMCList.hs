@@ -63,6 +63,8 @@ head (a : as) = a
 
 tail :: [a] -> [a]
 tail (a : as) = as
+tail as = []
+tail [] = []
 
 null :: [a] -> Bool
 null = undefined
