@@ -41,14 +41,14 @@ instance Eq Nat where
 
     (==) :: Nat -> Nat -> Bool
     O == O = True
-    (S n) == (S n) = True
-    n == m = False
+    n == n' = True
+    n == m' = False
 
 instance Ord Nat where
 
     (<=) :: Nat -> Nat -> Bool
-    (S n) <= (n) = False
-    m <= (S m) = True
+    (S n') <= (n) = False
+    m <= (S m') = True
     m <= O = False 
     O <= o = True 
 
@@ -64,7 +64,6 @@ instance Ord Nat where
     max (S n) (S m) = S (max n m)
     max O n = n
     max n O = n
-    max O O = "error, O = O"
 
 
 ----------------------------------------------------------------
@@ -124,7 +123,7 @@ odd (S (S n) ) = False
 monus :: Nat -> Nat -> Nat
 monus O _ = O
 monus n O = n
-monus (S n) (S m) = monus (n m)
+monus (S n) (S m) = (monus n m)
 (-*) :: Nat -> Nat -> Nat
 O -* _ = O
 n -* O = n
@@ -205,7 +204,7 @@ instance Num Nat where
 
     (+) = (<+>)
     (*) = (<*>)
-    (-) = (<->)
+    --(-) = (<->)
     abs n = n
     signum = sg
     fromInteger x
