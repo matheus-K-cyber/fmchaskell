@@ -73,7 +73,8 @@ length :: Integral i => [a] -> i
 length = undefined
 
 sum :: Num a => [a] -> a
-sum = undefined
+sum [] = 0
+sum (x : xs) = sum xs + x
 
 product :: Num a => [a] -> a
 product = undefined
