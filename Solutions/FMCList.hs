@@ -59,7 +59,7 @@ write [u,v]     for our u `Cons` (v `Cons` Nil)
 -}
 
 head :: [a] -> a
-head = undefined
+head (a : as) = a
 
 tail :: [a] -> [a]
 tail = undefined
