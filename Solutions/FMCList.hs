@@ -71,7 +71,8 @@ null [] = True
 null as = False
 
 length :: Integral i => [a] -> i
-length = undefined
+length [] = 0
+length (x : xs) = (length xs) + 1
 
 sum :: Num a => [a] -> a
 sum [] = 0
