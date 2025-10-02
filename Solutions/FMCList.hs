@@ -83,7 +83,8 @@ product [] = 1
 product (x : xs) = (product xs) * x
 
 reverse :: [a] -> [a]
-reverse = undefined
+reverse [] = []
+reverse (x : xs) = (reverse xs)
 
 (++) :: [a] -> [a] -> [a]
 (++) = undefined
