@@ -67,7 +67,8 @@ tail as = []
 tail [] = []
 
 null :: [a] -> Bool
-null = undefined
+null [] = True
+null as = False
 
 length :: Integral i => [a] -> i
 length = undefined
