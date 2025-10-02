@@ -48,9 +48,9 @@ instance Ord Nat where
 
     (<=) :: Nat -> Nat -> Bool
     (S n) <= (n) = False
-    n <= S n = True
-    m <= O = True
-    O <= n = False
+    m <= (S m) = True
+    m <= O = False 
+    O <= o = True 
 
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
@@ -113,19 +113,22 @@ odd (S (S n) ) = False
 
 -- addition
 (<+>) :: Nat -> Nat -> Nat
-(<+>) O n = n
+(<+>) O m = m
 (<+>) n O = n
-(<+>) Sn m = S (n <+> m)
+(<+>) (S n) m = S (n <+> m)
 
 -- This is called the dotminus or monus operator
 -- (also: proper subtraction, arithmetic subtraction, ...).
 -- It behaves like subtraction, except that it returns 0
 -- when "normal" subtraction would return a negative number.
 monus :: Nat -> Nat -> Nat
-monus = undefined
-
+monus O _ = O
+monus n O = n
+monus (S n) (S m) = monus (n m)
 (-*) :: Nat -> Nat -> Nat
-(-*) = undefined
+O -* _ = O
+n -* O = n
+(S n) -* (S m) = (n -* m) 
 
 -- multiplication
 times :: Nat -> Nat -> Nat
