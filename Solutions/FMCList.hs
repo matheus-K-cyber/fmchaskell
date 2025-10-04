@@ -88,7 +88,7 @@ reverse (x : xs) = x : (reverse xs)
 
 (++) :: [a] -> [a] -> [a]
 [] ++ xs = xs
-x : xs ++ ys = x : (xs ++ ys)
+(x : xs) ++ ys = x : (xs ++ ys)
 
 -- right-associative for performance!
 -- (what?!)
