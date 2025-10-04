@@ -25,7 +25,7 @@ uncurry f (x, y) = f x y
 flip :: (a -> b -> c) -> (b -> a -> c)
 --flip :: f b -> (a -> c)
 --flip :: f b a (c)
-flip f ( (x, y) -> z) = f ( (y, x) -> z) 
+(flip f) b' a' = f b' a'
 
 -- (.) takes two composable functions and returns their composition
 
